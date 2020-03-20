@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noResolve": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "dist",
+    "pretty": true,
+    "resolveJsonModule": true,
+    "rootDir": "./",
+    "strict": true,
+    "target": "es2018"
+  },
+  "include": ["index.ts", "lib", "global.d.ts"],
+  "exclude": [
+    "**/__tests__/*",
+    "**/__utils__/*",
+    "**/__mocks__/*",
+    "**/__snapshots__/*",
+    "node_modules"
+  ]
+}

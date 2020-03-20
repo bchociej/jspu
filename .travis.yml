@@ -1,0 +1,10 @@
+cache: yarn
+git:
+  depth: 3
+language: node_js
+node_js:
+  - 12
+  - node
+  - lts/*
+before_script: yarn test:ci
+script: yarn build

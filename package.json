@@ -1,0 +1,52 @@
+{
+  "name": "jspu",
+  "version": "1.0.0",
+  "author": "Ben Chociej <ben@chociej.io>",
+  "license": "Apache-2.0",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "clean": "rimraf dist",
+    "dev": "CONFIG_ENV=local ts-node-dev --transpileOnly --project tsconfig.json src/index.ts",
+    "lint": "eslint . --ext .js,.ts",
+    "postversion": "git push --follow-tags origin master",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn test",
+    "pretest": "yarn lint && yarn typecheck",
+    "prettier": "prettier --write \"./*.ts\" \"./*.js\" \"lib/**/*.ts\" \"tsconfig.json\" \".eslintrc.json\"",
+    "preversion": "yarn test",
+    "start": "node dist/index.js",
+    "test": "yarn test:only",
+    "test:ci": "yarn lint && yarn test:only",
+    "test:only": "CONFIG_ENV=test jest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@babel/core": "*",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-typescript": "^7.7.7",
+    "@types/jest": "^24.0.25",
+    "@types/node": "^13.1.4",
+    "@typescript-eslint/eslint-plugin": "^2.15.0",
+    "@typescript-eslint/parser": "^2.15.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jest": "^23.3.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^24.3.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {}
+}
